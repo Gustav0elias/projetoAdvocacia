@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="telaInicialScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.telainicialController">
+   <children>
+      <Label layoutX="217.0" layoutY="40.0" text="Escritório de Advocacia">
+         <font>
+            <Font name="Verdana" size="37.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="652.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/TrabalhoAdvocacia/justica.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="botaoInserir" layoutX="122.0" layoutY="243.0" mnemonicParsing="false" onAction="#onBotaoInserirAction" prefHeight="47.0" prefWidth="328.0" text="INSERIR">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAlterar" layoutX="122.0" layoutY="338.0" mnemonicParsing="false" onAction="#onBotaoAlterarAction" prefHeight="47.0" prefWidth="328.0" text="ALTERAR">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRemover" layoutX="488.0" layoutY="243.0" mnemonicParsing="false" onAction="#onBotaoRemoverAction" prefHeight="47.0" prefWidth="328.0" text="REMOVER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRelatorio" layoutX="488.0" layoutY="338.0" mnemonicParsing="false" onAction="#onBotaoRelatorioAction" prefHeight="47.0" prefWidth="328.0" text="RELATÓRIO">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoSair" layoutX="313.0" layoutY="554.0" mnemonicParsing="false" onAction="#onBotaoSairAction" prefHeight="31.0" prefWidth="274.0" text="SAIR">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
