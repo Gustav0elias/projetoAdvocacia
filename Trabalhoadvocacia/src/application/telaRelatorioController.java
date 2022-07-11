@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ public class telaRelatorioController implements Initializable{
 	@FXML
 	private TableView   <Processo> tabelaProcessos;
 	@FXML
-	private TableColumn <Processo, Integer> colAbertura;
+	private TableColumn <Processo, String> colAbertura;
 	@FXML
 	private TableColumn <Processo, String>colResponsavel;
 	@FXML
@@ -33,7 +34,13 @@ public class telaRelatorioController implements Initializable{
 	@FXML
 	private TableColumn <Processo, String>colCpf;
 	@FXML
-	private TableColumn <Processo, Integer> colIdade;
+	private TableColumn <Processo, String> colIdade;
+	@FXML
+	private TableColumn <Processo, String>colDia;
+	@FXML
+	private TableColumn <Processo, String>colMes;
+	@FXML
+	private TableColumn <Processo, String>colAno;
 	
 	@FXML
 	private AnchorPane relatorioScene;
@@ -70,10 +77,20 @@ public class telaRelatorioController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 
-		 colAbertura.setCellValueFactory(new PropertyValueFactory<> ("idade_abertura"));
-		 colResponsavel.setCellValueFactory(new PropertyValueFactory<> ("responsavel"));
-		 colCodigo.setCellValueFactory(new PropertyValueFactory<> ("codigo"));
-			tabelaProcessos.setItems(obslistProcesso);
+		 colResponsavel.setCellValueFactory(new PropertyValueFactory<Processo, String> ("responsavel"));
+		colAbertura.setCellValueFactory(new PropertyValueFactory<Processo, String>("idade_abertura"));
+		colCodigo.setCellValueFactory(new PropertyValueFactory<Processo, String>("codigo"));
+		
+		colNome.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCliente().getNome()));
+		colCpf.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCliente().getCpf()));
+		colIdade.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCliente().getIdade()));
+		
+		colDia.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getData().getDia()));
+		colMes.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getData().getMes()));
+		colAno.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getData().getAno()));
+
+
+			preencherTabela();
 			
 			
 		/*ArrayList <Processo> listap = rep.getProcesso();
@@ -89,19 +106,8 @@ public class telaRelatorioController implements Initializable{
 		
 	}
 	
-	
-	
-	/*	private void tabelaProcessos () {
-		
-		ObservableList<Processo> conteudo = FXCollections.observableArrayList(listap);	
-	 colAbertura.setCellValueFactory(new PropertyValueFactory<> ("idade_abertura"));
-	 colResponsavel.setCellValueFactory(new PropertyValueFactory<> ("responsave"));
-	 colCodigo.setCellValueFactory(new PropertyValueFactory<> ("codigo"));
-	 colNome.setCellValueFactory(new PropertyValueFactory<> ("nome"));
-	 colCpf.setCellValueFactory(new PropertyValueFactory<> ("cpf"));
-	 colIdade.setCellValueFactory(new PropertyValueFactory<> ("idade"));
-	 tabelaProcessos.setItems(conteudo);
+	public void preencherTabela() {
+		ObservableList<Processo> processos = FXCollections.observableArrayList(new Repositorio().getProcesso());
+		tabelaProcessos.setItems(processos);
 	}
-	
-	 */
 }

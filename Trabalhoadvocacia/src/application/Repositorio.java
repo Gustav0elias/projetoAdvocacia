@@ -5,16 +5,14 @@ import java.util.ArrayList;
 
 
 
+
+
 public class Repositorio {
 
 	
-	ArrayList <Processo> listaProcesso;
+	private static ArrayList<Processo> listaProcesso = new ArrayList <Processo>();
 	
-	public Repositorio() {
-		
-		listaProcesso = new ArrayList<Processo>();
-		
-	}
+	
 	
 	public void inserir (Processo p)
 	{
@@ -23,32 +21,15 @@ public class Repositorio {
 		
   }
 	
-	public void mostrarRelatorio () {
-		for (Processo processo : listaProcesso) {
-			System.out.println(processo.getCodigo());
-		}
-		
-	
+	public void remover (Processo i) {
+		listaProcesso.remove(i);
 	}
-	
-	/*public void remover (String r) {
-		for (int i=0; i<listaProcesso.size(); i++) {
-			
-			Processo processo = this.listaProcesso.get(i);
-			if (processo.getCliente().getCpf().equals(r)) {
-				listaProcesso.remove(i);
-			}
-			
-			else {
-				System.out.println("Esse CPF não está cadastrado no sistema");
-			}
-		}
-	}*/
+		
+
 	
 	public ArrayList <Processo> getProcesso() {
 		return listaProcesso;
 	}
 	
 	}
-	
 	

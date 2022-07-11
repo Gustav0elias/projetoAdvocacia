@@ -3,7 +3,7 @@ package application;
 public class Vip  extends Cliente{
 
 	String cod_membro;
-	public Vip(String nome, String cpf, Integer idade) {
+	public Vip(String nome, String cpf, String idade) {
 		super(nome, cpf, idade);
 		
 	}

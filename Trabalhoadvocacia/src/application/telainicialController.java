@@ -28,6 +28,8 @@ public class telainicialController implements Initializable {
 	private Button botaoAlterar;
 	@FXML
 	private Button botaoRelatorio;
+	@FXML
+	private Button botaoSair;
 
 
 	public void onBotaoInserirAction() { 
@@ -48,11 +50,35 @@ public class telainicialController implements Initializable {
 	} 
 	
 	public void onBotaoRemoverAction () {
-		System.out.println("remover");
-	}
+		try {
+
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("telaRemover.fxml")); 
+			 AnchorPane root = loader.load(); 
+			 Scene scene = new Scene (root);
+			 Stage primaryStage= (Stage) telaInicialScene.getScene().getWindow();
+			 primaryStage.setScene(scene);
+			 
+			 
+				}catch (IOException e) {
+					e.printStackTrace();
+				}
+			 
+			} 
+	
 	
 	public void onBotaoAlterarAction () {
-		System.out.println("inserir");
+		try {
+
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("telaAlterar.fxml")); 
+			 AnchorPane root = loader.load(); 
+			 Scene scene = new Scene (root);
+			 Stage primaryStage= (Stage) telaInicialScene.getScene().getWindow();
+			 primaryStage.setScene(scene);
+			 
+			 
+				}catch (IOException e) {
+					e.printStackTrace();
+				}
 	}
 	
 	
@@ -76,7 +102,8 @@ public class telainicialController implements Initializable {
 	} 
 	
 	public void onBotaoSairAction() {
-		
+		Stage stage = (Stage) botaoSair.getScene().getWindow();
+		stage.close();
 	}
 	
 	@Override

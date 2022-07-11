@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,26 +26,75 @@ public class telaInserirController implements Initializable{
 	@FXML
 	private TextField txfCodigo;
 	@FXML
-	private TextField txfData;
+	private TextField txfDia;
+	@FXML
+	private TextField txfMes;
+	@FXML
+	private TextField txfAno;
 	@FXML
 	private TextField txfNome;
 	@FXML
 	private TextField txfCpf;
 	@FXML
 	private TextField txfIdade;
+	@FXML
+	private TextField txfCodmembro;
+	@FXML
+	private TextField txftxfNvara;
+	@FXML
+	private RadioButton radioCriminal;
+	@FXML
+	private RadioButton radioComum;
 	
-	Repositorio repositorio = new Repositorio();
+	@FXML 
+	private Button botaoInserir;
+	
+	
+
 
 	
 	public void  inserir() {
-		
-		int abertura = parseInt(txfAbertura.getText());
+		int abertura = Integer.parseInt(txfAbertura.getText());
 		String responsavel = txfResponsavel.getText();
-		int codigo = parseInt(txfCodigo.getText());
-		Processo processo = new Comum (abertura, responsavel, codigo);
-		repositorio.inserir(processo);
-		System.out.println("testando");
-		repositorio.mostrarRelatorio();
+		int codigo = Integer.parseInt(txfCodigo.getText());
+		
+		String nome = txfNome.getText();
+		String cpf = txfCpf.getText();
+		String idade = txfIdade.getText();
+		
+		String dia = txfDia.getText();
+		String mes = txfMes.getText();
+		String ano = txfAno.getText();
+		
+		//if( radioComum.isSelected()) {
+		
+		Processo processoComum = new Comum(abertura, responsavel, codigo, new Cliente(nome, cpf, idade), new Data(dia, mes, ano));
+	
+		new Repositorio().inserir(processoComum);
+		
+		Alert alertInserido = new Alert(Alert.AlertType.INFORMATION);
+		alertInserido.setTitle("Inserido");
+		alertInserido.setContentText("O cadastro foi realizado Com sucesso");
+		alertInserido.showAndWait();}
+		
+		
+		
+	//	else if (radioCriminal.isSelected()) {
+		//	int nVara = Integer.parseInt(txftxfNvara.getText());
+			
+			//Processo p = new Criminal(abertura, responsavel, codigo, nVara, new Cliente(nome, cpf, idade));
+		//}
+			
+		
+		
+		/*int abertura = Integer.parseInt(txfAbertura.getText());
+		String responsavel = txfResponsavel.getText();
+		int codigo = Integer.parseInt(txfCodigo.getText());
+		String nome = txfNome.getText();
+		String cpf = txfCpf.getText();
+		int idade = Integer.parseInt(txfIdade.getText());
+		
+		*/
 	
 		//repositorioAlt.inserir(processo);
 		
@@ -53,12 +105,11 @@ public class telaInserirController implements Initializable{
 		processo.getCliente().setNome(txfNome.getText());
 		processo.getCliente().setCpf(txfCpf.getText());
 		repositorio.inserir(processo);*/
-	}
+	//}
 	
-	private int parseInt(String text) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
+
+
 
 	public void cancelar() {
 		try {

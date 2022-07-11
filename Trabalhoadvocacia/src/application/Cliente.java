@@ -1,11 +1,17 @@
 package application;
 
-public abstract class Cliente {
+public class Cliente {
 
 	protected String nome;
 	protected String cpf;
-	protected Integer idade;
-	public Cliente(String nome, String cpf, Integer idade) {
+	private String idade;
+	
+	public Cliente(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	
+	public Cliente(String nome, String cpf, String idade) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
@@ -23,10 +29,10 @@ public abstract class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Integer getIdade() {
+	public String getIdade() {
 		return idade;
 	}
-	public void setIdade(Integer idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
 	

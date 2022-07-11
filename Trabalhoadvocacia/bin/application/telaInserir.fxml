@@ -3,27 +3,20 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="inserirScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.telaInserirController">
    <children>
-      <Label layoutX="389.0" layoutY="35.0" text="Inserir">
-         <font>
-            <Font name="Verdana" size="37.0" />
-         </font>
-      </Label>
-      <Label layoutX="341.0" layoutY="88.0" text="*Insira um novo processo*">
-         <font>
-            <Font name="Verdana" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txfAbertura" layoutX="200.0" layoutY="188.0" prefHeight="34.0" prefWidth="182.0" />
+      <TextField fx:id="txfAbertura" layoutX="621.0" layoutY="291.0" prefHeight="34.0" prefWidth="192.0" />
       <HBox alignment="CENTER" layoutX="1.0" layoutY="514.0" prefHeight="118.0" prefWidth="900.0">
          <children>
-            <Button fx:id="botaoInserir" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#inserir" prefHeight="36.0" prefWidth="147.0" text="Inserir">
+            <Button fx:id="botaoInserir" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#inserir" prefHeight="36.0" prefWidth="147.0" style="-fx-background-color: #B22222;" text="INSERIR" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
@@ -31,53 +24,111 @@
                   <Insets right="40.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="botaoCancelar" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#cancelar" prefHeight="36.0" prefWidth="147.0" text="Cancelar">
+            <Button fx:id="botaoCancelar" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#cancelar" prefHeight="36.0" prefWidth="147.0" style="-fx-background-color: #B22222;" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <Label layoutX="96.0" layoutY="192.0" text="Abertura:">
+      <Label layoutX="517.0" layoutY="295.0" text="Abertura:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfResponsavel" layoutX="200.0" layoutY="233.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="96.0" layoutY="237.0" text="Responsável">
+      <TextField fx:id="txfResponsavel" layoutX="621.0" layoutY="336.0" prefHeight="34.0" prefWidth="192.0" />
+      <Label layoutX="517.0" layoutY="340.0" text="Responsável">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfCodigo" layoutX="200.0" layoutY="274.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="95.0" layoutY="278.0" text="Código: ">
+      <TextField fx:id="txfCodigo" layoutX="621.0" layoutY="377.0" prefHeight="34.0" prefWidth="192.0" />
+      <Label layoutX="516.0" layoutY="381.0" text="Código: ">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfData" layoutX="200.0" layoutY="319.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="96.0" layoutY="323.0" text="Data:">
+      <TextField fx:id="txfDia" layoutX="621.0" layoutY="422.0" prefHeight="34.0" prefWidth="33.0" />
+      <Label layoutX="517.0" layoutY="426.0" text="Data:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfNome" layoutX="585.0" layoutY="185.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="481.0" layoutY="189.0" text="Nome:">
+      <TextField fx:id="txfNome" layoutX="227.0" layoutY="298.0" prefHeight="34.0" prefWidth="182.0" />
+      <Label layoutX="69.0" layoutY="302.0" text="Nome:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfCpf" layoutX="585.0" layoutY="230.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="481.0" layoutY="234.0" text="CPF:">
+      <TextField fx:id="txfCpf" layoutX="227.0" layoutY="343.0" prefHeight="34.0" prefWidth="182.0" />
+      <Label layoutX="69.0" layoutY="347.0" text="CPF:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txfIdade" layoutX="585.0" layoutY="271.0" prefHeight="34.0" prefWidth="182.0" />
-      <Label layoutX="480.0" layoutY="275.0" text="Idade:">
+      <TextField fx:id="txfIdade" layoutX="227.0" layoutY="384.0" prefHeight="34.0" prefWidth="182.0" />
+      <Label layoutX="68.0" layoutY="388.0" text="Idade:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <AnchorPane layoutY="-47.0" prefHeight="170.0" prefWidth="907.0" style="-fx-background-color: #B22222;">
+         <children>
+            <Label layoutX="395.0" layoutY="67.0" text="Inserir" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="37.0" />
+               </font>
+            </Label>
+            <Label layoutX="363.0" layoutY="120.0" text="*Insira um novo processo*" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="34.0" fitWidth="33.0" layoutX="520.0" layoutY="76.0">
+               <image>
+                  <Image url="@../../../../Downloads/1485477083-plus_78571.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelError" layoutX="434.0" layoutY="450.0" textFill="RED">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="258.0" text="Dados do Cliente:" textFill="#c62020">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="517.0" layoutY="258.0" text="Dados do processo:" textFill="#c62020">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txfNvara" layoutX="620.0" layoutY="469.0" prefHeight="34.0" prefWidth="192.0" />
+      <Label layoutX="516.0" layoutY="473.0" text="N° da Vara:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txfCodmembro" layoutX="228.0" layoutY="427.0" prefHeight="34.0" prefWidth="182.0" />
+      <Label layoutX="69.0" layoutY="431.0" text="Código de membro:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radioCriminal" layoutX="512.0" layoutY="173.0" mnemonicParsing="false" text="Processo Criminal">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioComum" layoutX="668.0" layoutY="173.0" mnemonicParsing="false" text="Processo Comum">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="txfMes" layoutX="659.0" layoutY="422.0" prefHeight="34.0" prefWidth="70.0" />
+      <TextField fx:id="txfAno" layoutX="735.0" layoutY="422.0" prefHeight="34.0" prefWidth="79.0" />
    </children>
 </AnchorPane>

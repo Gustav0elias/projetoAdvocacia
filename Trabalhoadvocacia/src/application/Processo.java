@@ -1,22 +1,30 @@
 package application;
 
+
 public abstract class Processo {
 
 	
 	protected int idade_abertura;
 	protected String responsavel;
 	protected int codigo;
-	protected Cliente cliente;
+	 Cliente cliente;
+	 Data data;
 	
 
+	public Processo() {
+	}
 	
-	
-	public Processo(int idade_abertura, String responsavel, int codigo) {
+	public Processo(Cliente cliente ) {
+		this.cliente=cliente;
+	}
+	public Processo(int idade_abertura, String responsavel, int codigo, Cliente cliente, Data data) {
 		super();
 		this.idade_abertura = idade_abertura;
 		this.responsavel = responsavel;
 		this.codigo = codigo;
-	
+		this.cliente= cliente;
+		this.data = data;
+		
 	}
 	public Integer getIdade_abertura() {
 		return idade_abertura;
@@ -42,9 +50,23 @@ public abstract class Processo {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	
+	public Data getData() {
+		return data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+
+	public void setIdade_abertura(int idade_abertura) {
+		this.idade_abertura = idade_abertura;
+	}
+
 	@Override
 	public String toString() {
-		return  idade_abertura +  responsavel+ codigo
+		return  idade_abertura + "," +  responsavel + "," + codigo
 				;
 	}
 	
